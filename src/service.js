@@ -43,4 +43,4 @@
     set.add(f) && setConfigMaps().then(() => maps["importLibrary"](f, ...n)));
 
   maps["importLibrary"] ? warningAlert : showMaps;
-})({ key: "AIzaSyD25MQqyQ20jDmaEM1lRNzyTGQu9TeymkY", v: "beta" });
+})({ key: "API_KEY", v: "beta" });

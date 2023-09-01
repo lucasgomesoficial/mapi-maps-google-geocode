@@ -3,10 +3,11 @@ let lng;
 let resultAddress;
 
 const url = "https://maps.googleapis.com/maps/api/geocode/json";
-const apiKey = "AIzaSyD25MQqyQ20jDmaEM1lRNzyTGQu9TeymkY";
+const apiKey = "API_KEY";
 const adress = "R. Amadeu Gamberini, 283 - São Miguel Paulista, São Paulo - SP";
 
-function geocode() { // chamada para geocoding transformar o endereço em coodernada
+function geocode() {
+  // chamada para geocoding transformar o endereço em coodernada
   axios
     .get(url, {
       params: {
@@ -29,13 +30,16 @@ geocode();
 const showMaps = () => {
   const success = (position) => {
     const coordinates = document.getElementById("position");
-    const { latitude , longitude } = position.coords; // pega as suas coordenadas locais
+    const { latitude, longitude } = position.coords; // pega as suas coordenadas locais
 
-    coordinates.innerHTML = `latitude: ${lat || latitude} | longitude: ${lng || longitude} | adress: ${resultAddress || "Address not found"}`;
+    coordinates.innerHTML = `latitude: ${lat || latitude} | longitude: ${
+      lng || longitude
+    } | adress: ${resultAddress || "Address not found"}`;
 
     let map;
 
-    async function initMap() { // função para pegas as coordenadas e renderizar o mapa
+    async function initMap() {
+      // função para pegas as coordenadas e renderizar o mapa
       const position = { lat: lat || latitude, lng: lng || longitude }; // se a função geocode não funcionar, substitui pelas coordenadas locais
 
       const { Map } = await google.maps.importLibrary("maps");
